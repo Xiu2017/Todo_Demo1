@@ -13,29 +13,27 @@
 //  12、可清除所有状态为"Completed"的待办事项
 //
 
+const BASE_URL = "http://127.0.0.1:8088/todos";
+
 /**
  * 网页加载完成时初始化数据
  */
-window.onload = function () {
-
-};
-
-/**
- * 监听按键事件
- */
-document.onkeyup = function (event) {
-    let e = event || window.event || arguments.callee.caller.arguments[0];
-    let input = document.getElementsByClassName("new-todo")[0];
-    if (e && e.keyCode == 13 && input && input === document.activeElement) {
-        alert("ok");
-    }
-}
-
-var input = document.getElementsByClassName("new-todo");
+$(function(){
+    //加载数据
+    getTodoList();
+    //初始化输入框按键事件监听
+    $(".new-todo").bind("keyup",function(event){
+        if(event.keyCode === 13){
+            addTodo(this.value);
+        }
+    });
+});
 
 /**
  * 添加待办事项
  */
-function addTodo() {
-
+function addTodo(value) {
+    if(!isEmptyString(value)){
+        insertTodo(value);
+    }
 }
