@@ -11,7 +11,9 @@
 		<section class="todoapp">
 			<header class="header">
 				<h1>todos</h1>
-				<input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
+				<form id="new-todo-form" onsubmit="return false;">
+					<input name="content" class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?">
+				</form>
 			</header>
 			<section class="main">
 				<input id="toggle-all" class="toggle-all" type="checkbox">
@@ -19,9 +21,9 @@
 				<ul class="todo-list">
 				</ul>
 			</section>
-			<footer class="footer">
+			<footer class="footer" style="display: none;">
 				<span class="todo-count">
-					<strong>5 items left</strong>
+					<strong>0 items left</strong>
 				</span>
 				<ul class="filters">
 					<li><a href="#/all">All</a></li>

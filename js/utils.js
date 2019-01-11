@@ -19,3 +19,26 @@ function isEmptyString(str){
 
     return false;
 }
+
+/**
+ * 根据传来的字符串设置要过滤的todo状态
+ */
+function setStatus(status){
+    switch(status){
+        case "all": 
+        case "#/all":
+            this.status = "all";
+            break;
+        case "active":
+        case "#/active":
+            this.status = "active";
+            break;
+        case "completed":
+        case "#/completed":
+            this.status = "completed";
+            break;
+        default:
+            this.status = "all";
+            break;
+    }
+}
